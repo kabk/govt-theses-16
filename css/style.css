@@ -76,6 +76,10 @@ a, a:hover, a:visited, a:active {
     color: black;
 }
 
+agroup4, agroup4:hover, agroup4:visited, agroup4:active {
+    color: #0cf6ff;
+}
+
 p, svg {
     margin-top: 0;
     margin-bottom: 24px;
