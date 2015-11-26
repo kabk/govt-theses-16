@@ -76,7 +76,7 @@ a, a:hover, a:visited, a:active {
     color: black;
 }
 
-agroup4, agroup4:hover, agroup4:visited, agroup4:active {
+a.group4, a.group4:hover, a.group4:visited, a.group4:active {
     color: #0cf6ff;
 }
 
