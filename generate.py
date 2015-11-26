@@ -25,3 +25,5 @@ for thesis in repos['items']:
                                   slug=thesis['name'])
 
 print thesis_links
+
+# re.sub(pattern, repl, string, count=0, flags=0)
