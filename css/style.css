@@ -80,12 +80,12 @@ a.group4, a.group4:hover, a.group4:visited, a.group4:active {
     color: #0cf6ff;
 }
 
-agroup3title, agroup4:hover, agroup4:visited, agroup4:active {
+a.group3title, a.group3title:hover, a.group3title:visited, a.group3title:active {
     color: #0000FF;
     font-size: 25px;
 }
 
-agroup3, agroup4:hover, agroup4:visited, agroup4:active {
+a.group3, a.group3:hover, a.group3:visited, a.group3:active {
     color: #0000FF;
 }
 
