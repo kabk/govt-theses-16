@@ -80,6 +80,16 @@ agroup4, agroup4:hover, agroup4:visited, agroup4:active {
     color: #0cf6ff;
 }
 
+agroup3title, agroup4:hover, agroup4:visited, agroup4:active {
+    color: #0000FF;
+    font-size: 25px;
+}
+
+agroup3, agroup4:hover, agroup4:visited, agroup4:active {
+    color: #0000FF;
+}
+
+
 p, svg {
     margin-top: 0;
     margin-bottom: 24px;
