@@ -21,7 +21,7 @@ thesis_template = """
 thesis_links = ""
 for thesis in repos['items']:
     thesis_links += thesis_template.format(
-                                  url='http//kabk.github.io/%s/' % thesis['name'],
+                                  url='http://kabk.github.io/%s/' % thesis['name'],
                                   slug=thesis['name'])
 
 print thesis_links
