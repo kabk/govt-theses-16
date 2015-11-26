@@ -21,7 +21,11 @@ res = urlopen("https://api.github.com/search/repositories?q=govt-theses-16+in:na
 
 # The data is encoded in an exchange format called JSON
 # We can load this data into a variable so we can afterwards use it in python
-repos = json.load(res)
+data = json.load(res)
+repos = data['items']
+
+# Sort the repositories (for now, alphabetically by repository name)
+repos.sort(key=lambda x: x['name'])
 
 # Here’s a small template we’ll use for displaying each thesis
 thesis_template = """
@@ -35,7 +39,7 @@ thesis_template = """
 # in the future, we will find out more about the thesis by ‘scraping’
 # their metadata
 thesis_html = ""
-for thesis in repos['items']:
+for thesis in repos:
     thesis_html += thesis_template.format(
                                   url='http://kabk.github.io/%s/' % thesis['name'],
                                   slug=thesis['name'])
