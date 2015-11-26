@@ -1,0 +1,132 @@
+body {
+    font-size: 16px;
+    padding: 8px 16px 0px 8px;
+    font-family: NeueHaasUnicaPro-Light, sans-serif;
+    font-weight: 100;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 0 0 20px 0;
+    font-size: 30px;
+    text-decoration: line-through;
+}
+
+article { 
+    max-width: 602px;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+dt, dd {
+    margin-bottom: 2px;
+}
+
+dt {
+    margin-top: 6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+}
+
+h1 {
+    margin: 0 0 0 0;
+}
+
+h2, h4 {
+  font-size: 28px;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin: 12px 0 0px 0;
+}
+
+h2 a {
+    text-decoration: none;
+}
+
+h3, h5 {
+  font-size: 21px;
+  line-height: 24px;
+  margin: 0px 0 7px 0;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+ul, ol {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+a, a:hover, a:visited, a:active {
+    color: black;
+}
+
+p, svg {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+p {
+  font-size: 21px;
+  line-height: 24px;
+  margin: 14px 0;
+}
+
+p.spacer {
+    line-height: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+figure {
+    margin: 0;
+    padding: 1em 40px;
+}
+
+figure figcaption {
+    padding-top: 1em;
+}
+
+/* This makes the images scale to the full width of the page */
+img {
+    max-width: 600px;
+    max-height: 315px;
+    width: 100%;
+    height: auto;
+}
+
+header select {
+    float: right;
+}
+
+div.preview {
+  max-width: 602px;
+  margin-bottom: 30px;
+}
+
+div.preview figure {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.preview p:last-child {
+  margin-bottom: 54px;
+}
+
