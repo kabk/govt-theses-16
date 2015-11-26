@@ -131,9 +131,6 @@ div.preview p:last-child {
 }
 
 @media screen and (max-width: 480px) {
-    article, header {
-        margin-left: 0;
-    }
     header select {
         float: left;
     }
@@ -144,9 +141,6 @@ div.preview p:last-child {
      font-size: 16px;
      line-height: 24px;
      margin: 14px 0;
-   }
-   p#introduction {
-       display: none;
    }
 }
 
