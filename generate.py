@@ -14,18 +14,47 @@ from urllib2 import urlopen
 from codecs import open
 import json
 import re
+import sys
+
+from link_header import parse_link_value
 
 # We use Github’s API to get information about all the repositories
 # that include ‘govt-theses-16’ in their name
-res = urlopen("https://api.github.com/search/repositories?q=govt-theses-16+in:name+user:kabk")
+# res = urlopen("https://api.github.com/search/repositories?q=govt-theses-16-+in:name+user:kabk")
+
+url = "https://api.github.com/orgs/kabk/repos"
+repos = []
+
+while url:
+    res = urlopen(url)
+    repos += json.load(res)
+
+    print len(repos)
+    headers = dict(res.info())
+    if 'link' in headers:
+        links = parse_link_value(headers['link'])
+        for key, value in links.iteritems():
+            if value['rel'] == 'next':
+                url = key
+                print url
+                break
+            if value['rel'] == 'last':
+                url = key
+                print url
+                break
+        else:
+            url = None
+            print url
+
+
 
 # The data is encoded in an exchange format called JSON
 # We can load this data into a variable so we can afterwards use it in python
-data = json.load(res)
-repos = data['items']
 
 # Sort the repositories (for now, alphabetically by repository name)
 repos.sort(key=lambda x: x['name'])
+
+repos = [r for r in repos if r['name'].startswith('govt-theses-16-')]
 
 # Here’s a small template we’ll use for displaying each thesis
 thesis_template = """
