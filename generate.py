@@ -18,42 +18,53 @@ import sys
 
 from link_header import parse_link_value
 
-# We use Github’s API to get information about all the repositories
-# that include ‘govt-theses-16’ in their name
-# res = urlopen("https://api.github.com/search/repositories?q=govt-theses-16-+in:name+user:kabk")
-
 url = "https://api.github.com/orgs/kabk/repos"
 repos = []
 
 while url:
+    print "fetching %s" % url
     res = urlopen(url)
+    # The data is encoded in an exchange format called JSON
+    # We can load this data into a variable so we can afterwards use it in python
+    # In this case we know the JSON encodes a list so we can add it to the already
+    # encoded lists.
     repos += json.load(res)
 
-    print len(repos)
+    print "fetched %s records in total" % len(repos)
+
+    # http headers are metadata send along with each http response
     headers = dict(res.info())
     if 'link' in headers:
+        # Github returns a maximum of 30 results at the time.
+        # We need to request the next ‘page’ of results until we’ve read all.
+        # Github uses a special header, `link`, to tell us where to find
+        # the next page.
+        # For this it uses the Link header, a format specified here:
+        # http://tools.ietf.org/html/rfc5988
+        # we use a bit of existing code to read in (‘parse’) these values (from `link_header.py`)
         links = parse_link_value(headers['link'])
+        # this gives us a response like
+        # {'https://api.github.com/organizations/8778805/repos?page=2' : {'rel' : 'next'}}
         for key, value in links.iteritems():
+            # if there is a next page this is the url we need
             if value['rel'] == 'next':
                 url = key
-                print url
                 break
+            # if we are at the before-last set of results, there is no `next` page, but a `last` page:
             if value['rel'] == 'last':
                 url = key
-                print url
                 break
         else:
             url = None
-            print url
+    else:
+        url = None
 
 
-
-# The data is encoded in an exchange format called JSON
-# We can load this data into a variable so we can afterwards use it in python
 
 # Sort the repositories (for now, alphabetically by repository name)
 repos.sort(key=lambda x: x['name'])
 
+# filter the repositories so we only have those starting with `govt-theses-16-`
 repos = [r for r in repos if r['name'].startswith('govt-theses-16-')]
 
 # Here’s a small template we’ll use for displaying each thesis
