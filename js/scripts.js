@@ -20,5 +20,5 @@ Uncaught TypeError: $.find is not a function(…)
 var $paragraphs = $.find("p");
 
 if ($paragraphs) {
-    console.logs('found ' + $paragraphs.length + ' paragraphs in thesis');
+    console.log('found ' + $paragraphs.length + ' paragraphs in thesis');
 }
