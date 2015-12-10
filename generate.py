@@ -10,17 +10,29 @@ from __future__ import unicode_literals
 
 # These are the modules that we import, which we use for this script
 
-from urllib2 import urlopen
+# These modules are part of python:
+from urllib2 import urlopen, HTTPError
 from codecs import open
 import json
 import re
 import sys
 
+# And these we added ourselves (they are the folder opengraph and the file
+# link_header.py respectively)
+import opengraph
 from link_header import parse_link_value
 
 url = "https://api.github.com/orgs/kabk/repos"
 repos = []
 
+"""
+First we are going to connect with Github, and find out the names of all
+the theses of this year. ie, all the repositories in the `kabk` organisation
+that start with `govt-theses-16-`
+
+We use the ‘API’ of Github, a special version of the site that returns not
+web pages but data structures that can be easily re-used by scripts.
+"""
 while url:
     print "fetching %s" % url
     res = urlopen(url)
@@ -59,30 +71,46 @@ while url:
     else:
         url = None
 
-
-
 # Sort the repositories (for now, alphabetically by repository name)
 repos.sort(key=lambda x: x['name'])
 
 # filter the repositories so we only have those starting with `govt-theses-16-`
 repos = [r for r in repos if r['name'].startswith('govt-theses-16-')]
 
-# Here’s a small template we’ll use for displaying each thesis
+# Now we are going to do the actual scraping, i.e. finding out information about
+# the websites from the websites themselves
+
+theses = []
+for repo in repos:
+    url = 'http://kabk.github.io/%s/' % repo['name']
+    print "parsing %s:" % url
+    try:
+        g = opengraph.OpenGraph(url=url, scrape=True)
+    except HTTPError as e:
+        print "%s gives error %s" % (url, e)
+    d = json.loads(g.to_json())
+    d['slug'] = repo['name']
+    d['url'] = url
+    for key in ['image', 'title', 'creator', 'description']:
+        if key not in d:
+            d[key] = ""
+    theses.append(d)
+
 thesis_template = """
 <div class="preview">
-    <h2><a href="{url}">{slug}</a></h2>
+    <figure>
+        <a href="{url}"><img src="{image}"/></a>
+    </figure>
+    <h2><a href="{url}">{title}</a></h2>
+    <h3>{creator}</h3>
+    <p>{description} <a href="{url}">Continue reading…</a></p>
 </div>
 """
 
 # For each of the thesis, render the template with the information we found
-# For now, we only use the repository name
-# in the future, we will find out more about the thesis by ‘scraping’
-# their metadata
 thesis_html = ""
-for thesis in repos:
-    thesis_html += thesis_template.format(
-                                  url='http://kabk.github.io/%s/' % thesis['name'],
-                                  slug=thesis['name'])
+for thesis in theses:
+    thesis_html += thesis_template.format(**thesis)
 
 # Open the current index page and read in the current contents
 current_file = open('index.html', 'r', 'utf-8')
