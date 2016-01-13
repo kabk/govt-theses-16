@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GOVT Theses 2016</title>
+        <!-- This is so we get Thèses instead of ThÃ¨ses -->
+        <meta charset="utf-8"/>
+        <!-- This tells the mobile browser: do not zoom out -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+
+<body>
+<h2>Specific content for screen and print</h2>
+
+<p>We’ve already seen we can hide things for print:</p>
+
+<pre><code>@media print {
+    nav {
+        display: none;
+    }
+}
+</code></pre>
+
+<p>We can also do it directly in the HTML so we can be more specific. First we need this CSS:</p>
+
+<pre><code>@media screen {
+    .print-only {
+        display: none;
+    }
+}
+
+@media print {
+    .screen-only {
+        display: none;
+    }
+}
+</code></pre>
+
+<p>Then we can apply it directly in the HTML:</p>
+
+<pre><code>&lt;figure&gt;
+    &lt;iframe class="screen-only" src="https://player.vimeo.com/video/65545530&gt;&lt;/iframe&gt;
+    &lt;img class="print-only" src="images/osp_redesign_still.png"/&gt;
+    &lt;figcaption&gt;&lt;span class="screen-only"&gt;A video registration of the 2013 redesign of the OSP homepage. The&lt;/span&gt;&lt;span class="print-only"&gt;For the 2013 redesign of the OSP homepage, the &lt;/span&gt;stylesheet was edited collaboratively by the group of designers using an Etherpad—&lt;span class="screen-only"&gt;the video represents&lt;/span&gt;&lt;span class="print-only"&gt;an online video shows&lt;/span&gt; the period of 24 hours in which the process was visible live on the website.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<h2>Pagebreaks</h2>
+
+<p>The browser will break pages whenever it can, in much the same way like Word.</p>
+
+<p>You can influence this process though.</p>
+
+<p>The page-break-before and page-break-after properties can be used to instruct the browser to break at certain points. For instance, if an h2 always marks a new section that can start on a new page, one can use:</p>
+
+<pre><code>h2 {
+    page-break-before: always;
+}
+</code></pre>
+
+<p>This CSS can be useful:</p>
+
+<pre><code>/* Page-breaking */
+.page-break-before { page-break-before: always }
+.page-break-after { page-break-after: always }
+</code></pre>
+
+<p>So you can manually specify that after certain element the page needs to break.</p>
+
+<p>For instance, after this image:</p>
+
+<pre><code>&lt;figure class="page-break-after"&gt;
+    &lt;img src="coverimage.jpg" /&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<p>You can also tell CSS to not break inside certain elements. For instance, to not have pagebreaks inside your paragraphs:</p>
+
+<pre><code>p {
+    page-break-inside: avoid;
+}
+</code></pre>
+
+<h2>More</h2>
+
+<p>Some CSS is only suppported by Chrome.</p>
+
+<p>For example, it allows to set margins:</p>
+
+<pre><code>@page :left {
+  margin-left: 4cm;
+  margin-right: 3cm;
+}
+
+@page :right {
+  margin-left: 3cm;
+  margin-right: 4cm;
+}
+</code></pre>
+
+<p>In this case they are different for left and right pages, so the user can do double sided printing.</p>
+
+<p>Other CSS is not supported by any mainstream browser.</p>
+
+<p>Page numbers and running headers are among the basic amenities of printing.</p>
+
+<p>There are currently propositions to allow CSS to set page numbers in the top center of the page like this:</p>
+
+<pre><code>@page {
+  margin: 4cm 3cm 2cm 3cm;
+
+  @top-center {
+    font-family: sans-serif;
+    font-size: 2em;
+    content: counter(page);
+  }
+}
+</code></pre>
+
+<p>To actually use this kind of CSS, the only option is to use a program like <a href="http://www.princexml.com/">Prince XML</a>. This program is a bit less convenient to use as one has to launch it from the command line. It is also not Open Source.</p>
+
+<p>Another alternative is the project <a href="http://osp.kitchen/tools/html2print/">HTML2PRINT</a> by OSP. The problem with this project is that it is designed to use to make print publications with HTML, not hybrid publications like we do. I will look into if it is an option for us.</p>
+</body>
+</html>
