@@ -138,3 +138,4 @@ def write_html(theses):
 
 if __name__ == "__main__":
     write_html(scrape_info(get_slugs()))
+    # print scrape_info(["govt-theses-16-caroline-langendoen"])
