@@ -110,7 +110,7 @@ class OpenGraph(dict):
 
         img_urls = None
         if images:
-            img_urls = [dict(img.attrs)['src'] for img in images]
+            img_urls = [dict(img.attrs)['src'] for img in images if 'src' in dict(img.attrs)]
 
         if img_urls:
             local_img_url = img_urls[0]
