@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'kiss_and_riotregular';
+    src: url('kissandriot-regular-webfont.woff2') format('woff2'),
+         url('kissandriot-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: ''oswaldregular'regular';
+    src: url(''oswaldregular'-regular-webfont.woff2') format('woff2'),
+         url(''oswaldregular'-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 a {
   color:pink;
 }
@@ -6,7 +24,7 @@ body {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
 
-    font-family: KISS and RIOT, sans-serif;
+    font-family: 'kiss_and_riotregular', sans-serif;
     font-size: 21px;
     line-height: 24px;
     font-weight: 100;
@@ -197,14 +215,14 @@ p, svg {
 }
 
 p {
-  font-family: KISS and RIOT;
+  font-family: 'kiss_and_riotregular';
   font-size: 29px;
   line-height: 36px;
   margin: 0 0 0 0;
 }
 
 article#mainCol a {
-  font-family: KISS and RIOT;
+  font-family: 'kiss_and_riotregular';
   font-size: 29px;
   line-height: 36px;
 
@@ -212,7 +230,7 @@ article#mainCol a {
 }
 
 span {
-  font-family: KISS and RIOT;
+  font-family: 'kiss_and_riotregular';
   font-size: 29px;
   line-height: 36px;
 
@@ -281,7 +299,7 @@ span {
 
 
 #mainCol #topbar p {  
-  font-family: Oswald;
+  font-family: 'oswaldregular';
   font-size: 29px;
   line-height: 36px;
 
@@ -294,9 +312,9 @@ span {
   margin: 4px 20px;
   padding: 0 0 30px 0;
 
-  font-family: Oswald;
+  font-family: 'oswaldregular';
   font-size: 9.6px;
-  line-height: 14px;
+  line-height: 14rpx;
 
   text-transform: uppercase;
 
@@ -304,7 +322,7 @@ span {
 }
 
 #mainCol #topbar p span {
-  font-family: KISS and RIOT;
+  font-family: 'kiss_and_riotregular';
   font-size: 29px;
   line-height: 36px;
 
@@ -387,7 +405,7 @@ h2.active {
 div.preview {
   max-width: 602px;
   margin-bottom: 2px;
-  font-family: KISS and RIOT;
+  font-family: 'kiss_and_riotregular';
   cursor: pointer;
 }
 
