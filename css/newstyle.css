@@ -1,0 +1,426 @@
+a {
+  color:pink;
+}
+
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+    font-family: KISS and RIOT, sans-serif;
+    font-size: 21px;
+    line-height: 24px;
+    font-weight: 100;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+  height: auto;
+  width: 83.3%;
+  
+  margin: 0 0 20px 16.7%;  
+  padding: 0 0 20px 0;
+
+  font-size: 30px;
+  position: fixed;
+  display: none;
+  vertical-align: top;
+
+  background-color: #fff;
+}
+
+header select {
+  position: absolute;
+
+  top: 0.25em;
+  right: 0;
+}
+
+article#leftCol {
+  height: 100%;
+  width: 16.7%;
+
+  overflow: scroll;
+
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+}
+
+article#leftCol::-webkit-scrollbar {
+  display: none;
+}
+
+article#leftCol .preview figure, article#leftCol .preview h2, article#leftCol .preview p {
+  display: none;
+}
+
+/*
+article#mainCol #wrapper p a.sentence::after {
+  margin: 0 0 0 0;
+  padding: 0 1em 0 0.5em;
+
+  font-size: 0.5em;
+
+  content: ' ';
+
+  vertical-align: baseline;
+
+  color: rgba(0,0,0,0.2);
+}
+*/
+span.no-underline {
+  text-decoration: none !important;
+}
+
+section#theses {
+  margin: 20px;
+}
+
+article#mainCol {
+  height: 100%;
+  width: 82.3%;
+
+  margin: 2em 0 0 17.7%;
+  padding: 0 0 0 0;
+
+  position: fixed;
+
+  font-size: 32px;
+  line-height: 150%;
+}
+
+#wrapper {
+  height: 100%;
+  width: 80.7%;
+
+  margin: 0 0 4em 0;
+  padding: 1em 0 4em 0;
+
+  position: relative;
+
+  overflow: auto;
+}
+
+#wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#wrapper p {
+  margin: 2em 0 4em 0;
+  padding: 0 0 0 0;
+
+  text-align: left;
+}
+
+#wrapper p:first-of-type {
+  margin: 0 0 0 0;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+dt, dd {
+    margin-bottom: 2px;
+}
+
+dt {
+    margin-top: 6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    margin: 0;
+    margin-top: 21px;
+    padding: 0;
+}
+
+h1 {
+}
+
+h2, h3 {
+    font-size: 36px;
+    line-height: 40px;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+h4, h5 {
+  font-size: 27px;
+  line-height: 30px;
+}
+
+h4 {
+    text-transform: uppercase;
+}
+
+h2 a {
+    text-decoration: none;
+}
+
+h6 {
+  font-size: 21px;
+  line-height: 24px;
+}
+
+ul, ol {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+a, a:hover, a:visited, a:active {
+    color: black;
+}
+
+a.group4, a.group4:hover, a.group4:visited, a.group4:active {
+    color: #0cf6ff;
+}
+
+a.group3title, a.group3title:hover, a.group3title:visited, a.group3title:active {
+    color: #0000FF;
+    font-size: 25px;
+}
+
+a.group3, a.group3:hover, a.group3:visited, a.group3:active {
+    color: #0000FF;
+}
+
+
+p, svg {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+p {
+  font-family: KISS and RIOT;
+  font-size: 29px;
+  line-height: 36px;
+  margin: 0 0 0 0;
+}
+
+article#mainCol a {
+  font-family: KISS and RIOT;
+  font-size: 29px;
+  line-height: 36px;
+
+  text-decoration: none;
+}
+
+span {
+  font-family: KISS and RIOT;
+  font-size: 29px;
+  line-height: 36px;
+
+  text-decoration: none;
+}
+
+#leftCol #topbarLeft {
+  width: 16.7%;
+
+  position: fixed;
+
+  top:0;
+
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+
+  z-index: 10;
+}
+
+#mainCol #topbar {
+  width: 100%;
+
+  position: fixed;
+
+  top:0;
+
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+
+  z-index: 10;
+}
+
+#mainCol #topbar p {
+    background-color: #fff;
+}
+
+#leftCol #topbarLeft p {
+    background-color: #fff;
+}
+
+#mainCol #topbar .gradient {
+  height: 1.25em;
+  top: 28px;
+  width: 100%;
+
+  position: relative;
+
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+}
+
+#leftCol #topbarLeft .gradient {
+  height: 1.905em;
+  top: 0;
+  width: 100%;
+
+  position: relative;
+
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+}
+
+
+#mainCol #topbar p {  
+  font-family: Oswald;
+  font-size: 29px;
+  line-height: 36px;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+}
+
+#leftCol #topbarLeft p {
+  margin: 4px 20px;
+  padding: 0 0 30px 0;
+
+  font-family: Oswald;
+  font-size: 9.6px;
+  line-height: 14px;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+}
+
+#mainCol #topbar p span {
+  font-family: KISS and RIOT;
+  font-size: 29px;
+  line-height: 36px;
+
+  text-transform: none;
+
+  text-decoration: none;
+}
+
+article#mainCol a:hover {
+  color: #00f;
+}
+
+p.spacer {
+    line-height: 0;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+figure {
+    margin: 0;
+    padding: 1em 40px;
+}
+
+figure figcaption {
+    padding-top: 1em;
+}
+
+/* This makes the images scale to the full width of the page */
+img {
+    max-width: 600px;
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+}
+
+.hovereditem {
+  font-size: 11px !important;
+  font-weight: 800;
+}
+
+.hovereditem::before {
+  content: '>';
+
+  margin: 1em 0 1em 0;
+  padding: 0 0.5em 0 0;
+}
+
+.currentyleSelected {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+
+.active {
+  color: #00f !important;
+}
+
+h2.active a {
+  font-size: 1.2em;
+  color: #00f;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+h2.active {
+  margin: 1em 0 0 0 !important;
+  padding: 1em 0 0 0 !important;
+
+  border-top: 1px dashed #00f;
+}
+
+.currentyleSelected::before {
+  content: '>';
+
+  margin: 1em 0 1em 0;
+  padding: 0 0.5em 0 0;
+}
+
+div.preview {
+  max-width: 602px;
+  margin-bottom: 2px;
+  font-family: KISS and RIOT;
+  cursor: pointer;
+}
+
+div.preview figure {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.preview p:last-child {
+  margin: 1em 0 1em 0;
+  padding-bottom: 2em;
+
+  border-bottom: 1px dashed #00f;
+}
+
+section#theses {
+  margin: 5em 20px 0 20px;
+  padding: 0 0 0 0;
+
+  display: block;
+}
+
+section#theses h2, section#theses h3 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+
+  font-size: 10px;
+  line-height: 120%;
+}
+
+section#theses p {
+  font-size: 10px;
+  line-height: 120%;
+}
