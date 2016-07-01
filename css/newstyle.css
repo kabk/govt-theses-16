@@ -273,7 +273,7 @@ span {
 
 #mainCol #topbar .gradient {
   height: 1.25em;
-  top: 28px;
+  top: 0;
   width: 100%;
 
   position: relative;
@@ -298,7 +298,10 @@ span {
 }
 
 
-#mainCol #topbar p {  
+#mainCol #topbar p {
+  margin: 0 0 0 0;
+  padding: 0.5em 0 0.5em 0;
+
   font-family: 'oswaldregular';
   font-size: 29px;
   line-height: 36px;
@@ -309,8 +312,8 @@ span {
 }
 
 #leftCol #topbarLeft p {
-  margin: 4px 20px;
-  padding: 0 0 30px 0;
+  margin: 4px 20px 0 20px;
+  padding: 1.5em 0 1.5em 0;
 
   font-family: 'oswaldregular';
   font-size: 9.6px;
