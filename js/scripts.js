@@ -136,7 +136,8 @@ $('#leftCol .preview h3').click(function(){
     $(this).css('display','none');
   });
 
-  $(this).addClass('currentyleSelected').parent().find('figure').toggle();
+  $(this).addClass('currentyleSelected').parent().find('h2').addClass('active').toggle();
+  $(this).addClass('currentyleSelected').parent().find('p').addClass('active').toggle();
 });
 
 /** This script does nothing, except printing a small message to the console.
