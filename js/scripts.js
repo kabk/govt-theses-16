@@ -49,37 +49,46 @@ $('#mainCol a').mouseenter(function(event){
 
 });
 
+
+
 //
 // when hover over person names
 $('#leftCol .preview h3').mouseenter(function(){
+    $('#mainCol #wrapper').stop();
 
-  var name = $(this).text();
-  console.log(name);
+    var name = $(this).text();
+    // console.log(name);
 
-  $("#leftCol .preview h3").each(function(){
-    $(this).css('color','#000').removeClass('hovereditem');
-  });
+    $("#leftCol .preview h3").each(function(){
+      $(this).css('color','#000').removeClass('hovereditem');
+    });
 
-  $("#mainCol a").each(function(){
-    $(this).css({'color' : '#000', 'text-decoration' : 'none'});
-  });
+    $("#mainCol a").each(function(){
+      $(this).css({'color' : '#000', 'text-decoration' : 'none'});
+    });
 
-  $(this).css('color', '#00f').addClass('hovereditem');
+    $(this).css('color', '#00f').addClass('hovereditem');
 
-  var getThisSentence = $("#mainCol a[data-name='" + name + "']");
-  getThisSentence.css({'color' : '#00f', 'text-decoration' : 'underline'});
+    var getThisSentence = $("#mainCol a[data-name='" + name + "']");
+    getThisSentence.css({'color' : '#00f', 'text-decoration' : 'underline'});
 
-  // if(getThisSentence.length > 0){
-  //   var getThisSentenceOffSet = getThisSentence.offset().top;
-  //   // var getThisSentenceTOP = getThisSentenceOffSet.top;
+    if(getThisSentence.length > 0){
+      // var thisWindowHeight = $(window).height();
+      var topBarHeight = $('#topbar').height();
+      // var getThisSentenceOffSet = getThisSentence;
 
-  //   var getThisSentenceScrollTOP = $('#mainCol').scrollTop();
+      // getThisSentenceOffSet = getThisSentenceOffSet < 0 ? getThisSentenceOffSet+topBarHeight : getThisSentenceOffSet-topBarHeight;
 
-  //   console.log(getThisSentenceScrollTOP);
+      // var getThisSentenceTOP = getThisSentenceOffSet.top;
 
-  //   $('#mainCol #wrapper').animate({scrollTop : getThisSentenceOffSet}, 1000);
+      // var getThisSentenceScrollTOP = $('#mainCol').scrollTop();
 
-  // }
+      // console.log(getThisSentenceScrollTOP);
+
+      // $('#mainCol #wrapper').animate({scrollTop : getThisSentenceOffSet}, 1000);
+      // console.log(getThisSentenceOffSet);
+      $('#wrapper').scrollTo(getThisSentence, 1000, {offset:-topBarHeight});
+    }
 });
 
 // $('#leftCol').mouseleave(function(){
